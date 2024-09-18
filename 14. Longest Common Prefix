@@ -1,0 +1,31 @@
+# Python 3
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        min1 = min(strs, key = len)
+        l1 = list(min1)
+        x = ''
+        index1 = 0
+        count = 0
+        flag = True
+        if len(l1) == 0:
+            return ('')
+
+        elif len(strs) == 1:
+            return (strs[0])
+        else:
+            for j in range(0, len(l1)):
+                for i in strs:
+                    if i[index1] == l1[index1]:
+                        count += 1
+                        if count == len(strs):
+                            x += min1[index1]
+                            index1 += 1
+                            count = 0
+                            if index1 == len(l1):
+                                return x
+                                flag = False
+
+                    else:
+                        return x
+                        exit()
