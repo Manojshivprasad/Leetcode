@@ -1,0 +1,42 @@
+# Python 3
+
+class Solution:
+    def intToRoman(self, num: int) -> str:
+        str1 = ''
+        data = {
+            900 : 'CM',
+            90 : 'XC',
+            9 : 'IX',
+            400 : 'CD',
+            40 : 'XL',
+            4 : 'IV',
+            1 : 'I',
+            5 : 'V',
+            10 : 'X',
+            50 : 'L',
+            100 : 'C',
+            500 : 'D',
+            1000 : 'M'
+        }
+        for i in range(0, len(str(num))):
+            place = int(10 ** ((len(str(num)) - 1) - i))
+            y = str(num)
+            x = place * int(y[i])
+
+
+            if place == 1000:
+                str1 += (int(x/place)) * 'M'
+
+            elif x in data:
+                str1 += data[x]
+
+            else:
+                if int(x/place) // 5 >= 1:
+                    s = ((int(x/place)) % 5) * place
+                    p = 5 * place
+                    str1 += str(data[p]) + str(int(s/place) * data[place])
+
+                else:
+                    str1 += int(x / place) * (data[place])
+
+        return(str1)
