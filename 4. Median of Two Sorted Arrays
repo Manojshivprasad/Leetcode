@@ -1,0 +1,14 @@
+# Python 3
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        l1 = nums1 + nums2
+        l1.sort()
+        if len(l1) % 2 == 0:
+            x = int(len(l1)/2)-1
+            median = (l1[x] + l1[x+1])/2
+            return median
+
+        else:
+            x = int((len(l1)-1)/2)
+            median = l1[x]
+            return median
