@@ -1,0 +1,22 @@
+# Python3
+
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        l1 = []
+        count = 0
+        if len(s) == 1:
+            return s
+        else:
+            for i in s:
+                str1 = (f'{i}')
+                count += 1
+                for j in range(count, len(s)):
+                    str1 += s[j]
+                    if str1 == str1[::-1]:
+                        l1.append(str1)
+                    else:
+                        continue
+            if len(l1) == 0:
+                return s[0]
+            else:
+                return max(l1, key=len)
