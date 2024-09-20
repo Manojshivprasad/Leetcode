@@ -1,0 +1,22 @@
+# Python 3
+
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        x1 = [nums]
+        def permutation(x,a):
+            add1 = (x[:a])
+            l1 = []
+            for i in x[a:]:
+                z = (x[a:]).copy()
+                o = []
+                o.append(i)
+                z.remove(i)
+                l1.append(add1 + o + z)
+            return (l1)
+
+        for i in range(len(nums)-1):
+            xo = []
+            for j in x1:
+                xo += permutation(j,i)
+                x1 = xo.copy()
+        return(x1)
