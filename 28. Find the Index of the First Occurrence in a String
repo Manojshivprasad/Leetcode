@@ -1,0 +1,17 @@
+#Python 3
+
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        count = 0
+        check = False
+        for i in range(len(haystack)-len(needle)+1):
+            if (haystack[i:(i+len(needle))]) == needle:
+                check = True
+                break
+            else:
+                count += 1
+
+        if check == True:
+            return(count)
+        else:
+            return -1
