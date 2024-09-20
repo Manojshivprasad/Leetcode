@@ -1,3 +1,2 @@
 # Leetcode
-Solutions for Leetcode problems
-Solutions Given By Manoj shivprasad
+Solutions for Leetcode problems Given By Manoj shivprasad
