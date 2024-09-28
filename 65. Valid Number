@@ -1,0 +1,30 @@
+# Python 3
+
+class Solution:
+    def isNumber(self, s: str) -> bool:
+        f_digit = False
+        f_dot = False
+        f_e = False
+        c = 0
+        for a,i in enumerate(s):
+            if i.isdigit():
+                f_digit = True
+            elif i == '-' or i == '+':
+                if a == 0 or s[a-1] in ('e','E'):
+                    continue
+                else:
+                    return False
+            elif i == 'e' or i == 'E':
+                if f_e or not f_digit:
+                    return False
+                else:
+                    f_e = True
+                    f_digit = False
+            elif i == '.':
+                if f_e or f_dot:
+                    return False
+                else:
+                    f_dot = True
+            else:
+                return False
+        return f_digit
