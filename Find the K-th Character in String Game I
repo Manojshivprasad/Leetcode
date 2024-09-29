@@ -1,0 +1,14 @@
+# Python 3
+
+class Solution:
+    def kthCharacter(self, k: int) -> str:
+        word = 'a'
+        while len(word) <= k:
+            str1 = ''
+            for i in word:
+                if ord(i) >= 122:
+                    str1 += chr(ord(i) -121)
+                else:
+                    str1 += chr(ord(i)+1)
+            word += str1
+        return(word[k-1])
