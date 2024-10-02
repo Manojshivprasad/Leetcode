@@ -1,0 +1,11 @@
+#Python 3
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        num = 0
+        count = 0
+        for i in set(nums):
+            if nums.count(i) > count:
+                num = i
+                count = nums.count(i)
+        return(num)
