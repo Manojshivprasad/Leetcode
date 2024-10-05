@@ -1,0 +1,16 @@
+#Python 3
+
+class Solution:
+    def countDigitOne(self, n: int) -> int:
+        factor = 1
+        count = 0
+        for i in range(len(str(n))):
+            if(n//factor)%10 == 1:
+                count += (n//(factor*10))*factor+(n%factor+1)
+            elif (n//factor)%10 > 1:
+                count += (n // (factor*10) + 1)*factor
+            else:
+                count += (n//(factor * 10)) * factor
+            factor *= 10
+
+        return(count)
