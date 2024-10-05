@@ -1,0 +1,11 @@
+#Python 3
+
+class Solution:
+    def findDifferentBinaryString(self, nums: List[str]) -> str:
+        l1 = []
+        for i in nums:
+            l1.append(int(i,2))
+        for i in range(0,int('1'*len(max(nums)))+1):
+            if i not in l1:
+                return(format(i,f'0{len(max(nums))}b'))
+                break
