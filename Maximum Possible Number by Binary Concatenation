@@ -1,0 +1,10 @@
+#Python 3
+
+class Solution:
+    def maxGoodNumber(self, nums: List[int]) -> int:
+        l1 = []
+        for i in nums:
+            l1.append(format(i,'0b'))
+        l1.sort(key=lambda x: x*10, reverse=True)
+        result = ''.join(l1)
+        return(int(result,2))
