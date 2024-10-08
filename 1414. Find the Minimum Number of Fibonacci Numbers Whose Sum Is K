@@ -1,0 +1,17 @@
+# Python 3
+
+class Solution:
+    def findMinFibonacciNumbers(self, k: int) -> int:
+        l1 = [1,1]
+        l = []
+        while l1[-1] < k:
+            x = l1[-1] + l1[-2]
+            l1.append(x)
+        l1.reverse()
+        for i in l1:
+            while k >= i:
+                k -= i
+                l.append(i)
+            if k == 0:
+                break
+        return(len(l))
