@@ -1,0 +1,13 @@
+# Python 3
+
+class Solution:
+    def arrayRankTransform(self, arr: List[int]) -> List[int]:
+        x = []
+        l1 = sorted(set(arr))
+        dict1 = {}
+        for a,i in enumerate(l1,start=1):
+            dict1[i] = a
+        for i in arr:
+            val = dict1[i]
+            x.append(val)
+        return(x)
