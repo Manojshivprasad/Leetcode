@@ -1,0 +1,30 @@
+# Python 3
+
+class Solution:
+    def calculate(self, s: str) -> int:
+        num = 0
+        result = 0
+        stack = []
+        sign = 1
+
+        for i in s:
+            if i.isdigit():
+                num = num * 10 + int(i)
+            elif i in '+-':
+                result += num * sign
+                if i == '-':
+                    sign = -1
+                else:
+                    sign = 1
+                num = 0
+            elif i == '(':
+                stack.append(result)
+                stack.append(sign)
+                result = 0
+                sign = 1
+            elif i == ')':
+                result += num * sign
+                result *= stack.pop()
+                result += stack.pop()
+                num = 0
+        return(result + num * sign)
