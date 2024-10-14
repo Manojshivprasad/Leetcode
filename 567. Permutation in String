@@ -1,0 +1,14 @@
+# Python 3
+# SLOW FOR BIG STRINGS
+
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        l1 = list(s1)
+        l1.sort()
+
+        for i in range(len(s2)-len(s1)+1):
+            x = (s2[i:len(s1)+i])
+            l2 = sorted(list(x))
+            if l1 == l2:
+                return(True)
+        return(False)
