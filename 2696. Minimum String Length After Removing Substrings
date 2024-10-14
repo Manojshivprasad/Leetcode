@@ -1,0 +1,31 @@
+Python 3
+
+# ONLY FOR 'AB' AND 'CD'
+class Solution:
+    def minLength(self, s: str) -> int:
+        stack = []
+        for c in s:
+            if not stack:
+                stack.append(c)
+                continue
+            if c == "B" and stack[-1] == "A":
+                stack.pop()
+            elif c == "D" and stack[-1] == "C":
+                stack.pop()
+            else:
+                stack.append(c)
+        return len(stack)
+
+# FOR ALL
+class Solution:
+    def minLength(self, s: str) -> int:
+        l1 = [s]
+
+        for i in l1:
+            for j in range(1,len(i)):
+                if ord(i[j - 1]) + 1 == ord(i[j]):
+                    x = i[:j - 1] + i[j + 1:]
+                    l1.append(x)
+                    break
+        l1.sort(key=len)
+        return(len(l1[0]))
