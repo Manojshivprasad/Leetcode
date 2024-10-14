@@ -1,0 +1,21 @@
+# Python 3
+
+class Solution:
+    def areSentencesSimilar(self, sentence1: str, sentence2: str) -> bool:
+        w1 = sentence1.split()
+        w2 = sentence2.split()
+
+        if len(sentence1) < len(sentence2):
+            w1,w2 = w2,w1
+
+        l1,l2 = len(w1),len(w2)
+        start = 0
+        end = 0
+
+        while start < l2 and w1[start] == w2[start]:
+            start += 1
+
+        while end < l2 and w1[l1 - 1 - end] == w2[l2 - 1 - end]:
+            end += 1
+
+        return(start+end >= l2)
