@@ -1,0 +1,18 @@
+# Python 3
+
+class Solution:
+    def maximumSwap(self, num: int) -> int:
+        l1 = list(str(num))
+        l2 = sorted(l1, reverse=True)
+        if l1 == l2:
+            return(num)
+        else:
+            for a, i in enumerate(l1):
+                target = max(l1[a:])
+                if i != target:
+                    index = str(num).rfind(target)
+                    l1[a] = target
+                    l1[index] = i
+                    break
+            result = ''.join(l1)
+            return(int(result))
