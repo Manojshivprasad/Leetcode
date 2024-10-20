@@ -1,0 +1,8 @@
+# Python 3
+# RUN TIME IS HIGH
+
+class Solution:
+    def findKthBit(self, n: int, k: int) -> str:
+        str1 = '0'
+        [str1 := str1 + '1' + ''.join('1' if i == '0' else '0' for i in str1)[::-1] for j in range(n)]
+        return(str1[k-1])
