@@ -1,0 +1,9 @@
+# Python 3
+
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        result = [[]]
+        for i in nums:
+            sub = [[i] + j for j in result]
+            result += sub
+        return(result)
