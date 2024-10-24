@@ -1,0 +1,9 @@
+# Python 3
+
+class Solution:
+    def sumOfUnique(self, nums: List[int]) -> int:
+        l1 = []
+        for i in set(nums):
+            if nums.count(i) == 1:
+                l1.append(i)
+        return sum(l1)
