@@ -1,0 +1,14 @@
+# Python 3
+
+class Solution:
+    def isStrictlyPalindromic(self, n: int) -> bool:
+        for i in range(2,n):
+            x = n
+            str1 = ''
+            while x:
+                r = x % i
+                str1 += str(r)
+                x //= i
+            if str1 != str1[::-1]:
+                return False
+        return True
