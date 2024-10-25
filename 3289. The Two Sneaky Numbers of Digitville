@@ -1,0 +1,9 @@
+# Python 3
+
+class Solution:
+    def getSneakyNumbers(self, nums: List[int]) -> List[int]:
+        result = []
+        for i in set(nums):
+            if nums.count(i) == 2:
+                result.append(i)
+        return result
