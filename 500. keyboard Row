@@ -1,0 +1,11 @@
+# Python 3
+
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        l1, l2, l3 = set('qwertyuiop'), set('asdfghjkl'), set('zxcvbnm')
+        result = []
+        for word in words:
+            w = set(word.lower())
+            if w <= l1 or w <= l2 or w <= l3:
+                result.append(word)
+        return(result)
