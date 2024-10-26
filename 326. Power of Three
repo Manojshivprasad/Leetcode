@@ -1,0 +1,10 @@
+# Python 3
+
+class Solution:
+    def isPowerOfThree(self, n: int) -> bool:
+        import math
+        if n <= 0:
+            return False
+        else:
+            l = log10(n)/log10(3)
+            return l == int(l)
