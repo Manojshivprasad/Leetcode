@@ -1,0 +1,19 @@
+# Python 3
+
+# My Code
+class Solution:
+    def getPermutation(self, n: int, k: int) -> str:
+        l1 = list(range(1, n + 1))
+        result = [''.join(map(str, l1))]
+        while len(result) < k:
+            for i in range(len(l1) - 1, 0, -1):
+                if l1[i] > l1[i - 1]:
+                    ix = i - 1
+                    break
+            j = len(l1) - 1
+            while l1[j] <= l1[ix]:
+                j -= 1
+            l1[ix], l1[j] = l1[j], l1[ix]
+            l1[ix + 1:] = reversed(l1[ix + 1:])
+            result.append(''.join(map(str, l1)))
+        return result[-1]
