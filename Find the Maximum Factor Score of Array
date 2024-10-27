@@ -1,0 +1,28 @@
+# Python 3
+
+class Solution:
+    def maxScore(self, nums: List[int]) -> int:
+        if len(nums) == 1:
+            return(nums[0] * nums[0])
+        else:
+            def gcd(nums):
+                c_gcd = nums[0]
+                for i in nums[1:]:
+                    c_gcd = math.gcd(c_gcd, i)
+                return c_gcd
+        
+            def lcm(nums):
+                c_lcm = nums[0]
+                for i in nums[1:]:
+                    c_lcm = math.lcm(c_lcm, i)
+                return c_lcm
+        
+        
+            r = 0
+            for i in range(len(nums)):
+                c = nums.copy()
+                x1 = gcd(c) * lcm(c)
+                c.pop(i)
+                x2 = gcd(c) * lcm(c)
+                r = max(x1,x2,r)
+            return(r)
