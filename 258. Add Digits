@@ -1,0 +1,8 @@
+# Python 3
+
+class Solution:
+    def addDigits(self, num: int) -> int:
+        while len(str(num)) > 1:
+            l1 = [int(i) for i in str(num)]
+            num = sum(l1)
+        return(num)
