@@ -1,0 +1,18 @@
+# Python 3
+
+class Solution:
+    def getHint(self, secret: str, guess: str) -> str:
+        p = 0
+        bull = 0
+        cow = 0
+        s_num = 0
+        l1 = list(secret)
+        x = l1.copy()
+        for i in guess:
+            if l1[p] == i:
+                bull += 1
+            if i in x:
+                s_num += 1
+                x.remove(i)
+            p += 1
+        return(f'{bull}A{s_num-bull}B')
