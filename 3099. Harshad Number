@@ -1,0 +1,5 @@
+# Python 3
+
+class Solution:
+    def sumOfTheDigitsOfHarshadNumber(self, x: int) -> int:
+        return(sum([int(i) for i in list(str(x))]) if x % sum([int(i) for i in list(str(x))]) == 0 else -1)
