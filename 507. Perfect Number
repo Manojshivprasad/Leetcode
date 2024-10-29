@@ -1,0 +1,14 @@
+# Python 3
+
+class Solution:
+    def checkPerfectNumber(self, num: int) -> bool:
+        data = {1}
+        for i in range(2, int(math.sqrt(num)) + 1):
+            if num % i == 0:
+                data.add(i)
+                data.add(num // i)
+
+        if num < 2:
+            return False
+        else:
+            return(sum(data) == num)
