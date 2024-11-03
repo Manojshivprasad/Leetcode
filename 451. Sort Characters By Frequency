@@ -1,0 +1,10 @@
+# Python 3
+
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        data = {}
+        for i in s:
+            data[i] = 1 + data.get(i,0)
+        l1 = sorted(data,key=lambda x:data[x],reverse=True)
+        str1 = ''.join([i*data[i] for i in l1])
+        return(str1)
