@@ -1,0 +1,22 @@
+# Python 3
+
+class Solution:
+    def myAtoi(self, s: str) -> int:
+        nums = '0123456789'
+        result = ''
+        for i in s.strip():
+            if (i in '+-' or i in nums) and len(result) == 0:
+                result += i
+            elif i in nums:
+                result += i
+            else:
+                break
+        if result == '' or result in '-+':
+            return 0
+        else:
+            if int(result) < -(2**31):
+                return -(2**31)
+            elif int(result) > (2**31 - 1):
+                return (2**31 - 1)
+            else:
+                return int(result)
