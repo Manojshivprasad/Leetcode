@@ -1,0 +1,10 @@
+class Solution:
+    def stringHash(self, s: str, k: int) -> str:
+        c = 0
+        str1 = ''
+        for a,i in enumerate(s,start=1):
+            c += ord(i) - 97
+            if a % k == 0:
+                str1 += (chr((c % 26) + 97))
+                c = 0
+        return(str1)
