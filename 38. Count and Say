@@ -1,0 +1,21 @@
+# Python 3
+
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        s = '1'
+        for i in range(n-1):
+            l1 = list(s)
+            result = []
+            count = 1
+            str1 = ''
+            x = l1.pop(0)
+            for i in l1:
+                if x == i:
+                    count += 1
+                else:
+                    str1 += f'{count}{x}'
+                    x = i
+                    count = 1
+            str1 += f'{count}{x}'
+            s = str1
+        return(s)
