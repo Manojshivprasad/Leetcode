@@ -1,0 +1,19 @@
+# Python 3
+
+class Solution:
+    def validPalindrome(self, s: str) -> bool:
+        if s == s[::-1]:
+            return True
+        else:
+            for i in range(len(s)):
+                if s[i] == s[(i * -1)-1]:
+                    continue
+                else:
+                    l1 = list(s)
+                    l2 = list(s)
+                    l1.pop(i)
+                    l2.pop((i*-1)-1)
+                    if l1 != l1[::-1] and l2 != l2[::-1]:
+                        return False
+                    else:
+                        return True
