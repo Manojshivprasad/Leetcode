@@ -1,0 +1,9 @@
+# Python 3
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        data = {}
+        for i in strs:
+            x = ''.join(sorted(i))
+            data[x] = data.get(x,[]) + [i]
+        return(list(data.values()))
