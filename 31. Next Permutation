@@ -1,0 +1,22 @@
+# Python 3
+
+class Solution:
+    def nextPermutation(self, l1: List[int]) -> None:
+        """
+        Do not return anything, modify l1 in-place instead.
+        """
+        n = len(l1)
+        ix = -1
+        for i in range(n - 2, -1, -1):
+            if l1[i] < l1[i + 1]:
+                ix = i
+                break
+        if ix == -1:
+            l1.reverse()
+            return
+        for j in range(n - 1, ix, -1):
+            if l1[j] > l1[ix]:
+                l1[ix], l1[j] = l1[j], l1[ix]
+                break
+
+        l1[ix + 1:] = reversed(l1[ix + 1:])
