@@ -1,0 +1,19 @@
+# Python 3
+
+class Solution:
+    def reverseOnlyLetters(self, s: str) -> str:
+        i = 0
+        j = len(s) - 1
+        l1 = list(s)
+        while j > i:
+            start = l1[i].isalpha()
+            end = l1[j].isalpha()
+            if start and end:
+                l1[i],l1[j] = l1[j],l1[i]
+                i += 1
+                j -= 1
+            elif not start:
+                i += 1
+            else:
+                j -= 1
+        return(''.join(l1))
