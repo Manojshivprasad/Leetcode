@@ -1,0 +1,22 @@
+# Python 3
+
+class Solution:
+    def canSortArray(self, nums: List[int]) -> bool:
+        def count1(n):
+            c = 0
+            while n:
+                c += n & 1
+                n >>= 1
+            return c
+        
+        for i in nums:
+            min1 = min(nums)
+            ix = nums.index(min1)
+            c = count1(min1)
+            for j in range(ix):
+                if count1(nums[j]) == c:
+                    continue
+                else:
+                    return(False)
+            nums.pop(ix)
+        return(True)
