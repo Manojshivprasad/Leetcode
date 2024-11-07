@@ -6,3 +6,23 @@ class Solution:
         for i in sentences:
             m = max(m,len(i.split()))
         return m
+
+# Cpp
+
+class Solution {
+public:
+    int mostWordsFound(vector<string>& sentences) {
+        string token;
+        int result = 0;
+        for (auto i:sentences){
+            int c = 1;
+            for (int j = 0; j < i.size(); j++){
+                if (i[j] == ' '){
+                    c += 1;
+                }
+            }
+            result = max(result,c);
+        }
+        return result;
+    }
+};
