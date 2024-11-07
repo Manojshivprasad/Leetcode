@@ -3,3 +3,29 @@
 class Solution:
     def validStrings(self, n: int) -> List[str]:
         return([format(i,f'0{n}b') for i in range(2**n) if '00' not in format(i,f'0{n}b')])
+
+# Cpp
+
+class Solution {
+public:
+    vector<string> validStrings(int n) {
+        string s(n,'1');
+        vector<string> result;
+        int max_b = stoi(s,nullptr,2);
+        for (int i = 0; i < max_b+1; i++){
+            bool flag = true;
+            string binary = bitset<18>(i).to_string();
+            binary = binary.substr(18 - n);
+            for (int j = 1; j < binary.size();j++){
+                if (binary[j-1] == '0' && binary[j] == '0'){
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag){
+                result.push_back(binary);
+            }
+        }
+        return result;
+    }
+};
