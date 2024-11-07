@@ -3,3 +3,32 @@
 class Solution:
     def convertDateToBinary(self, date: str) -> str:
         return('-'.join([bin(int(i))[2:] for i in date.split('-')]))
+
+# Cpp
+
+class Solution {
+public:
+    string convertDateToBinary(string date) {
+        string token;
+        string result;
+        vector <string> tokens;
+        stringstream ss(date);
+        while(getline(ss,token,'-')){
+            tokens.push_back(token);
+        }
+        int j=0;
+        for (auto i:tokens){
+            int x = stoi(i);
+            string binary = bitset<32>(x).to_string();
+            result += binary.substr(binary.find('1'));
+            if (j == tokens.size()-1){
+                continue;
+            }
+            else{
+                result += "-";
+            }
+            j++;
+        }
+        return result;
+    }
+};
