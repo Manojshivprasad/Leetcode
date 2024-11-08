@@ -1,0 +1,13 @@
+# Python 3
+
+class Solution:
+    def getMaximumXor(self, nums: List[int], maximumBit: int) -> List[int]:
+        result = []
+        l1 = [nums[0]]
+        for i in nums[1:]:
+            l1.append(l1[-1]^i)
+        max_val = (1 << maximumBit) - 1
+        for i in range(len(nums)):
+            x = l1.pop()
+            result.append(x ^ max_val)
+        return(result)
