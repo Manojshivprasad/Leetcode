@@ -10,3 +10,20 @@ class Solution:
             result.append(m ^ max_val)
         result.reverse()
         return(result)
+
+# Cpp
+
+class Solution {
+public:
+    vector<int> getMaximumXor(vector<int>& nums, int maximumBit) {
+        vector<int> result;
+        int m = 0;
+        int max_val = (1 << maximumBit) - 1;
+        for (auto i:nums){
+            m ^= i;
+            result.push_back(m ^ max_val);
+        }
+        reverse(result.begin(),result.end());
+        return result;
+    }
+};
