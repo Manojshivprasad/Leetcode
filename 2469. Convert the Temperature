@@ -1,0 +1,23 @@
+# Cpp
+
+class Solution {
+public:
+    vector<double> convertTemperature(double celsius) {
+        double kelvin = celsius+273.15;
+        double fahrenheit  = (celsius * 1.80) + 32.00;
+        vector<double> ans;
+        ans.push_back(kelvin);
+        ans.push_back(fahrenheit);
+        return ans;
+    }
+};
+
+# Python 3
+
+class Solution:
+    def convertTemperature(self, celsius: float) -> List[float]:
+        l1 = []
+        Kelvin = celsius + 273.15
+        Fahrenheit = (celsius * 1.80) + 32.00
+        l1.extend([Kelvin,Fahrenheit])
+        return l1
