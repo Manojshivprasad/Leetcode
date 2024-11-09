@@ -1,0 +1,17 @@
+# Python 3
+
+class Solution:
+    def replaceNonCoprimes(self, nums: List[int]) -> List[int]:
+        i = 0
+        j = 1
+        while j < len(nums):
+            x,y = nums[i],nums[j]
+            if gcd(x,y) == 1:
+                i += 1
+                j += 1
+            else:
+                nums[i:j+1] = [lcm(x,y)]
+                if i != 0:
+                    i -= 1
+                    j -= 1
+        return(nums)
