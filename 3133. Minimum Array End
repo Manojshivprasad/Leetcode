@@ -1,0 +1,29 @@
+# Python 3
+
+class Solution:
+    def minEnd(self, n: int, x: int) -> int:
+        bx=bin(x)[2:][::-1]
+        bn=bin(n-1)[2:][::-1]
+        bx=bx.ljust(bx.count('1')+len(bn),'0')
+        bn=bn.ljust(bx.count('0'),'0')
+        c=0
+        for i in range(len(bx)):
+            if bx[i]=='0':
+                bx=bx[:i]+bn[c]+bx[i+1:]
+                c+=1
+        return int('0b'+bx[::-1],2)
+
+#Cpp
+
+class Solution {
+public:
+    long long minEnd(int n, int x) {
+        long long int result = x;
+        while(n > 1){
+            result += 1;
+            result = result | x;
+            n--;
+        }
+    return result;
+    }
+};
