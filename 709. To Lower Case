@@ -1,0 +1,13 @@
+# Python
+
+class Solution:
+    def toLowerCase(self, s: str) -> str:
+        str1 = ''
+        for i in s:
+            x = ord(i)
+            if 65 <= x <= 90:
+                y = chr(x + 32)
+                str1 += y
+            else:
+                str1 += i
+        return(str1)
