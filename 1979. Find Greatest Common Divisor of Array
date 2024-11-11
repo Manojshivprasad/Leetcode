@@ -1,0 +1,20 @@
+# Python 3
+
+class Solution:
+    def findGCD(self, nums: List[int]) -> int:
+        return gcd(min(nums),max(nums))
+
+# C++
+
+class Solution {
+public:
+    int findGCD(vector<int>& nums) {
+        int mn = 1001;
+        int mx = 0;
+        for(auto i:nums){
+            mn = min(mn,i);
+            mx = max(mx,i);
+        }
+        return gcd(mn,mx);
+    }
+};
