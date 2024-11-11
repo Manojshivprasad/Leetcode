@@ -9,3 +9,11 @@ class Solution:
                 num = i
                 count = nums.count(i)
         return(num)
+
+# Solution - 2
+class Solution(object):
+    def majorityElement(self, nums):
+        data = {}
+        for i in nums:
+            data[i] = data.get(i,0) + 1
+        return(max(data,key = data.get))
