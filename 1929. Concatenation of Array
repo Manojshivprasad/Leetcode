@@ -1,0 +1,22 @@
+# Python 3
+
+class Solution:
+    def getConcatenation(self, nums: List[int]) -> List[int]:
+        return nums + nums
+
+# C++
+
+class Solution {
+public:
+    vector<int> getConcatenation(vector<int>& nums) {
+        vector<int> result;
+        int i = 0;
+        while (i<2){
+            for (auto x:nums){
+                result.push_back(x);
+            }
+            i++;
+        }
+        return result;
+    }
+};
