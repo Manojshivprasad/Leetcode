@@ -1,0 +1,28 @@
+# Python 3
+class Solution:
+    def maximumNumberOfStringPairs(self, words: List[str]) -> int:
+        r = 0
+        for i in range(len(words)):
+            rev = words[i][::-1]
+            for j in range(len(words[:i])):
+                if rev == words[j]:
+                    r += 1
+        return r
+
+# C++
+class Solution {
+public:
+    int maximumNumberOfStringPairs(vector<string>& words) {
+        int r = 0;
+        for (int i = 0; i < words.size(); i++){
+            string rev = words[i];
+            reverse(rev.begin(), rev.end());
+            for (int j = i + 1; j < words.size(); j ++){
+                if (rev == words[j]){
+                    r += 1;
+                }
+            }
+        }
+        return r;
+    }
+};
