@@ -1,0 +1,22 @@
+# Python 3
+
+class Solution:
+    def findArray(self, pref: List[int]) -> List[int]:
+        result = [pref[0]]
+        for i in range(1,len(pref)):
+            result.append(pref[i] ^ pref[i-1])
+        return(result)
+
+# C++
+
+class Solution {
+public:
+    vector<int> findArray(vector<int>& pref) {
+        vector<int> result;
+        result.push_back(pref[0]);
+        for (int i = 1; i < pref.size(); i++){
+            result.push_back(pref[i-1] ^ pref[i]);
+        }
+        return result;
+    }
+};
