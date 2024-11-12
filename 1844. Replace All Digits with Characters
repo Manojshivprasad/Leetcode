@@ -1,0 +1,22 @@
+# Python 3
+
+class Solution:
+    def replaceDigits(self, s: str) -> str:
+        result = list(s)
+        for a,i in enumerate(result):
+            if i.isnumeric():
+                val = chr(ord(result[a-1])+int(i))
+                result[a] = val
+        return ''.join(result)
+
+# C++
+
+class Solution {
+public:
+    string replaceDigits(string s) {
+        for (int i = 1; i < s.size(); i += 2){
+            s[i] = s[i-1] + (s[i] - '0');
+        }
+        return s;
+    }
+};
