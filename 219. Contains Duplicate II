@@ -1,0 +1,11 @@
+# Python 3
+
+class Solution:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        data = {}
+        for a,i in enumerate(nums):
+            if i in data and a - data[i] <= k:
+                return True
+            else:
+                data[i] = a
+        return False
