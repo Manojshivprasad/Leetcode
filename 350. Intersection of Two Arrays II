@@ -1,0 +1,11 @@
+# Python 3
+
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        result = []
+        data = Counter(nums1)
+        for i in nums2:
+            if i in data and data[i] > 0:
+                data[i] = data.get(i) - 1
+                result.append(i)
+        return result
