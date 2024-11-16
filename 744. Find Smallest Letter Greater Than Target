@@ -1,0 +1,15 @@
+# Python 3
+
+class Solution:
+    def nextGreatestLetter(self, letters: List[str], target: str) -> str:
+        first = 0
+        last = len(letters) - 1
+        result = letters[0]
+        while first <= last:
+            mid = first + (last - first) // 2
+            if letters[mid] > target:
+                result = letters[mid]
+                last = mid - 1
+            else:
+                first = mid + 1
+        return result
