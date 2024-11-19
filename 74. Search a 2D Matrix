@@ -28,3 +28,26 @@ class Solution:
 __________________________________________________________________________
 TIME COMPLEXITY - O(N + M)
 __________________________________________________________________________
+
+# Soultion 3
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        row = len(matrix)
+        column = len(matrix[0])
+        start = 0
+        end = (row * column) - 1
+        while start <= end:
+            mid = start + (end - start) // 2
+            i = mid // column
+            j = mid % column
+            if matrix[i][j] == target:
+                return True
+            elif matrix[i][j] > target:
+                end = mid - 1
+            else:
+                start = mid + 1
+        return False
+
+___________________________________________________________________________
+TIME COMPLEXITY - O(log(M * N))
+___________________________________________________________________________
