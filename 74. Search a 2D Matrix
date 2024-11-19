@@ -1,5 +1,6 @@
 # Python 3
 
+# Soultion 1
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         l1 = [j for i in matrix for j in i]
@@ -11,7 +12,7 @@ __________________________________________________________________________
 TIME COMPLEXITY - O(n*m)
 __________________________________________________________________________
 
-# Binary Search
+# Solution 2
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         i = 0
