@@ -1,0 +1,23 @@
+# Python 3
+
+class Solution:
+    def splitArray(self, nums: List[int], k: int) -> int:
+        def check(arr,val,k):
+            add = 0
+            c = 1
+            for i in arr:
+                if add + i > val:
+                    add = 0
+                    c += 1
+                add += i
+            return c > k
+        start = max(nums)
+        end = sum(nums)
+
+        while start < end:
+            mid = (start + end) // 2
+            if check(nums,mid,k):
+                start = mid + 1
+            else:
+                end = mid
+        return start
