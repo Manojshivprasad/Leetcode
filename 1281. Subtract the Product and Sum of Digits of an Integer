@@ -9,3 +9,6 @@ class Solution:
             a *= int(i)
             b += int(i)
         return(a-b)
+______________________________________________________
+Product and sum of each digit of the number is taken and subracted
+______________________________________________________
