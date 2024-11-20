@@ -14,3 +14,8 @@ class Solution:
             result.append(l2)
             l1 = l2
         return(result[:numRows])
+________________________________________________________________
+l1[i-1] + l1[i] adds the adjecent numbers and append in l2
+1 is added in l2 in first and last postion and appended to result
+l1 stores l2 to perform the next additions
+________________________________________________________________
