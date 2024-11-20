@@ -40,3 +40,14 @@ class Solution:
                     str1 += int(x / place) * (data[place])
 
         return(str1)
+_______________________________________________________________________________
+The face value and place value of the number is calculated
+The thousands are been added first
+If there is any special case element those are added next
+If the number is greater than five then V + I * (modulus of that number is added)
+If the number is less than five then I * required times
+_______________________________________________________________________________
+
+
+
+
