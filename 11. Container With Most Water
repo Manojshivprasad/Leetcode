@@ -11,3 +11,9 @@ class Solution:
             else:
                 right -= 1
         return(x)
+________________________________________________________________________
+Two pointer
+x stores the most amount of water, left and right are the pointers
+if height of the pillar at the left is smaller that right it moves to the right, if not the pointer at the last moves to the left
+The area is taken and compared with x and x stores the most abount of water that can be held
+_________________________________________________________________________
