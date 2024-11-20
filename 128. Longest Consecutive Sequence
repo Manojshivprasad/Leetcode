@@ -12,3 +12,8 @@ class Solution:
                     i += 1
                 l = max(l,l1)
         return(l)
+_________________________________________________________________________
+Starting with the lowest number of a sequence and checking the next element are present or not
+If the next elements are present it is added when the loop breaks that sequence is compared with the previous length of the sequence and stores the max value
+That max value is then returned 
+_________________________________________________________________________
