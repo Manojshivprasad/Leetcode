@@ -8,3 +8,8 @@ class Solution:
             min1 = min(min1,i)
             max1 = max(max1,i-min1)
         return(max1)
+__________________________________________________________________
+The first number is taken as minimum
+Then the maximum value if holded on max1
+i - min1 is the profit or loss after selling the stock
+__________________________________________________________________
