@@ -7,3 +7,7 @@ class Solution:
             if i.isalnum():
                 j += i.lower()
         return(j == j[::-1])
+________________________________________________________________
+Only the letters are stored in j with lower case
+Check j is palindrome or not
+________________________________________________________________
