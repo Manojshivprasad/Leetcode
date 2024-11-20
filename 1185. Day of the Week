@@ -3,3 +3,6 @@
 class Solution:
     def dayOfTheWeek(self, day: int, month: int, year: int) -> str:
        return date(year, month, day).strftime("%A") 
+___________________________________________________________________
+A inbuilt library is used to find the day on the given week
+___________________________________________________________________
