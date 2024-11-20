@@ -3,6 +3,9 @@
 class Solution:
     def defangIPaddr(self, address: str) -> str:
         return address.replace(".", "[.]")
+___________________________________________________________________
+Replace function replaces '.' with '[.]'
+___________________________________________________________________
 
 # Cpp
 
@@ -21,3 +24,7 @@ public:
         return s;
     }
 };
+____________________________________________________________________
+A new string s is created
+The address is iterated and if the iterator is '.' it adds s with '[.]'
+____________________________________________________________________
