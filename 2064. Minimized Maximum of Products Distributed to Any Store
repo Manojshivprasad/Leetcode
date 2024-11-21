@@ -1,0 +1,19 @@
+# Python 3
+
+class Solution:
+    def minimizedMaximum(self, n: int, quantities: List[int]) -> int:
+        def check(arr,max_val,split):
+            c = 0
+            for i in arr:
+                c += (i + max_val - 1) // max_val
+            return c > split
+        start = 1
+        end = 100000
+        val = 1
+        while start < end:
+            mid = start + (end - start) // 2
+            if check(quantities,mid,n):
+                start = mid + 1
+            else:
+                end = mid
+        return(start)
