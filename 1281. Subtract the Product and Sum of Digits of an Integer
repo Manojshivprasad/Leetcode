@@ -1,5 +1,6 @@
 # Python 3
 
+# Solution 1
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
         a = 1
@@ -12,3 +13,15 @@ class Solution:
 ______________________________________________________
 Product and sum of each digit of the number is taken and subracted
 ______________________________________________________
+
+# Solution 2
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        s_t = 0
+        m_t = 1
+        while n > 0:
+            x = n % 10
+            s_t += x
+            m_t *= x
+            n //= 10
+        return(m_t-s_t)
