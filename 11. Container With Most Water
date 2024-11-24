@@ -1,3 +1,5 @@
+# Python 3
+
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         x = 0
@@ -17,3 +19,25 @@ x stores the most amount of water, left and right are the pointers
 if height of the pillar at the left is smaller that right it moves to the right, if not the pointer at the last moves to the left
 The area is taken and compared with x and x stores the most abount of water that can be held
 _________________________________________________________________________
+
+# C++
+
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int x = 0;
+        int left = 0;
+        int right = height.size() - 1;
+        while (left < right){
+            int water = min(height[left], height[right]) * (right - left);
+            x = max(x,water);
+            if (height[left] < height[right]){
+                left += 1;
+            }
+            else{
+                right -= 1;
+            }
+        }
+        return x;
+    }
+};
