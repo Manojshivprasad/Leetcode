@@ -30,6 +30,7 @@ _____________________________________________________________________
 
 # Cpp
 
+# Solution 1
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -45,3 +46,19 @@ public:
 _______________________________________________________________________
 Itterate the list i and check for the numeber after i which add ups to target
 _______________________________________________________________________
+
+# Solution 2
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int,int> data;
+        for (int i = 0; i < nums.size(); i++){
+            int x = nums[i];
+            if (data.find(x) != data.end()){
+                return {data[x],i};
+            }
+            data[target-x] = i;
+        }
+        return {};
+    }
+};
