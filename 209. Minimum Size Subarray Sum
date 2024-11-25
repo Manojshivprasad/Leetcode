@@ -1,0 +1,19 @@
+# Python 3
+
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        sum1 = 0
+        ix = 0
+        flag = False
+        result = float('inf')
+        for i in range(len(nums)):
+            sum1 += nums[i]
+            while sum1 >= target:
+                result = min(result,i-ix+1)
+                flag = True
+                sum1 -= nums[ix]
+                ix += 1
+        if flag:
+            return result
+        else:
+            return 0
