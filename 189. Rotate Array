@@ -1,0 +1,29 @@
+# C++
+
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        k %= nums.size();
+        int start = 0;
+        int end = nums.size() - 1;
+        int x = end - k + 1;
+        while (x < end){
+            swap(nums[x], nums[end]);
+            x++;
+            end--;
+        }
+        end = nums.size() - 1;
+        x = end - k;
+        while (start < x){
+            swap(nums[start], nums[x]);
+            start++;
+            x--;
+        }
+        start = 0;
+        while (start < end){
+            swap(nums[start], nums[end]);
+            start++;
+            end--;
+        }
+    }
+};
