@@ -1,0 +1,18 @@
+# C++
+
+class Solution {
+public:
+    vector<int> frequencySort(vector<int>& nums) {
+        unordered_map<int,int> data;
+        for (int num : nums) {
+            data[num]++;
+        }
+        sort(nums.begin(),nums.end(), [&data](int x, int y){
+            if (data[x] != data[y]){
+                return data[x] < data[y];
+            }
+            return x > y;
+        });
+        return nums;
+    }
+};
