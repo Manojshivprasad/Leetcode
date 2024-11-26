@@ -15,7 +15,7 @@ i - min1 is the profit or loss after selling the stock
 __________________________________________________________________
 
 # C++
-
+# Better aproach
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
