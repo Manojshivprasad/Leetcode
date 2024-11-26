@@ -11,7 +11,7 @@ class Solution:
                     continue
 _____________________________________________________________________
 TIME COMPLEXITY - O(N^2)
-Iterates list - i and Itterate the list again starting from i + 1
+Iterates list i and Itterate the list again starting from i + 1
 Check the element i and j, If the elements add up to target return corresponding numeber[i,j]
 ______________________________________________________________________
 
@@ -26,6 +26,8 @@ class Solution:
 _____________________________________________________________________
 TIME COMPLEXITY - O(N)
 Done using hash map
+target - i will be stored in a hash with postion of i
+When a number from list is in hash map it return the postion corresponding value
 _____________________________________________________________________
 
 # Cpp
