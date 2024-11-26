@@ -1,0 +1,17 @@
+# C++
+
+class Solution {
+public:
+    vector<int> replaceElements(vector<int>& arr) {
+        int n = arr.size();
+        vector<int> result{-1};
+        int max_val = arr[n-1];
+        for (int i = n-1; i >= 1; i--){
+            if (arr[i] > max_val){
+                max_val = arr[i];
+            }
+            result.push_back(max_val);
+        }
+        return vector<int>(result.rbegin(), result.rend());
+    }
+};
