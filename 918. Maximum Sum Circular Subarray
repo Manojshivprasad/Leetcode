@@ -1,0 +1,28 @@
+# C++
+
+class Solution {
+public:
+    int max_val(vector<int> arr,int n){
+        int result = arr[0];
+        int max1 = arr[0];
+        for (int i = 1; i < n; i++){
+            max1 = max(arr[i],arr[i] + max1);
+            result = max(result,max1);
+        }
+        return result;
+    }
+    int maxSubarraySumCircular(vector<int>& nums) {
+        int n = nums.size();
+        int straight = max_val(nums,n);
+        if (straight < 0){
+            return straight;
+        }
+        int sum1 = 0;
+        for (int i = 0; i < nums.size(); i++){
+            sum1 += nums[i];
+            nums[i] = -nums[i];
+        }
+        int circular = sum1 + max_val(nums,n);
+        return (max(straight,circular));
+    }
+};
