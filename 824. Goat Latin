@@ -1,0 +1,11 @@
+# Python 3
+
+class Solution:
+    def toGoatLatin(self, sentence: str) -> str:
+        l1 = sentence.split()
+        for a,i in enumerate(l1,start=1):
+            if i[0] in ('a','e','i','o','u','A','E','I','O','U'):
+                l1[a-1] = i + 'ma' + ('a'*a)
+            else:
+                l1[a-1] = i[1:] + i[0] + 'ma' + ('a'*a)
+        return(' '.join(l1))
