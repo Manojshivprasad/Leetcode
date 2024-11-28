@@ -1,0 +1,54 @@
+# Python 3
+
+# """
+# This is MountainArray's API interface.
+# You should not implement it, or speculate about its implementation
+# """
+#class MountainArray:
+#    def get(self, index: int) -> int:
+#    def length(self) -> int:
+
+class Solution:
+    def findInMountainArray(self, target: int, mountainArr: list) -> int:
+        n = mountainArr.length()
+        start = 0
+        end = n - 1
+        while start < end:
+            mid = start + (end - start) // 2
+            if mountainArr.get(mid) > mountainArr.get(mid + 1):
+                end = mid
+            else:
+                start = mid + 1
+        peakix = start
+        # Increasing
+        start = 0
+        end = peakix - 1
+        result1 = float('inf')
+        while start <= end:
+            mid = start + (end - start) // 2
+            val = mountainArr.get(mid)
+            if val == target:
+                end = mid - 1
+                result1 = mid
+            elif val > target:
+                end = mid - 1
+            else:
+                start = mid + 1
+        
+        # Decreasing
+        start = peakix
+        end = n - 1
+        result2 = float('inf')
+        while start <= end:
+            mid = start + (end - start) // 2
+            val = mountainArr.get(mid)
+            if val == target:
+                end = mid - 1
+                result2 = mid
+            elif val < target:
+                end = mid - 1
+            else:
+                start = mid + 1
+        if result1 == result2:
+            return -1
+        return min(result1,result2)
