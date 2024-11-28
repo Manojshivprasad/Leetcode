@@ -17,3 +17,23 @@ class Solution:
             return result
         else:
             return 0
+
+# C++
+
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int minLength = INT_MAX;
+        int sum1 = 0;
+        int x = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            sum1 += nums[i];
+            while (sum1 >= target) {
+                minLength = min(minLength, i - x + 1);
+                sum1 -= nums[x];
+                x++;
+            }
+        }
+        return (minLength == INT_MAX) ? 0 : minLength;
+    }
+};
