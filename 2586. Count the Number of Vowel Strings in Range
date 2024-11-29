@@ -1,0 +1,10 @@
+# Python 3
+
+class Solution:
+    def vowelStrings(self, words: List[str], left: int, right: int) -> int:
+        c = 0
+        for i in range(left,right+1):
+            x = words[i]
+            if x[0] in 'aeiouAEIOU' and x[-1] in 'aeiouAEIOU':
+                c += 1
+        return c
