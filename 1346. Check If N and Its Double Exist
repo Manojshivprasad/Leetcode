@@ -1,0 +1,15 @@
+# C++
+
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+        unordered_set<int> result;
+        for (int val : arr){
+            if (result.find(val * 2) != result.end() || (val % 2 == 0 && result.find(val / 2) != result.end())){
+                return true;
+            }
+            result.insert(val);
+        }
+        return false;
+    }
+};
