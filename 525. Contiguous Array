@@ -1,0 +1,26 @@
+C++
+
+class Solution {
+public:
+    int findMaxLength(vector<int>& nums) {
+        int sum = 0;
+        int result = 0;
+        unordered_map<int,int> data;
+        data[0] = -1;
+        for (int i = 0 ; i < nums.size(); i++){
+            if (nums[i] == 1){
+                sum += 1;
+            }
+            else{
+                sum -= 1;
+            }
+            if (data.find(sum) != data.end()){
+                result = max(result,i - data[sum]);
+            }
+            else{
+                data[sum] = i;
+            }
+        }
+        return result;
+    }
+};
