@@ -1,0 +1,17 @@
+# C++
+
+class Solution {
+public:
+    int isPrefixOfWord(string sentence, string searchWord) {
+        stringstream ss(sentence);
+        string words;
+        int c = 1;
+        while (ss >> words){
+            if (words.find(searchWord) == 0){
+                return c;
+            }
+            c++;
+        }
+        return -1;
+    }
+};
