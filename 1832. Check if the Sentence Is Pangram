@@ -1,0 +1,17 @@
+# C++
+
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        unordered_set<char> data;
+        for(auto x: sentence){
+            data.insert(x);
+        }
+        if (data.size() == 26){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+};
