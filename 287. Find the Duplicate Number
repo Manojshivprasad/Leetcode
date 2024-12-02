@@ -1,0 +1,17 @@
+C++
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        unordered_map<int,int> data;
+        for(auto x: nums){
+            data[x]++;
+        }
+        for(const auto& x:nums){
+            if (data[x] > 1){
+                return x;
+            }
+        }
+        return -1;
+    }
+};
