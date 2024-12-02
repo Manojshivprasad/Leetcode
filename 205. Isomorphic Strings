@@ -1,0 +1,24 @@
+# C++
+
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        unordered_map<char,char> data1;
+        unordered_map<char,char> data2;
+        for (int i = 0; i < s.size(); i++){
+            if (data1.find(s[i]) != data1.end() && data1[s[i]] != t[i]){
+                return false;
+            }
+            else{
+                data1[s[i]] = t[i];
+            }
+            if (data2.find(t[i]) != data2.end() && data2[t[i]] != s[i] ){
+                return false;
+            }
+            else{
+                data2[t[i]] = s[i];
+            }
+        }
+        return true;
+    }
+};
