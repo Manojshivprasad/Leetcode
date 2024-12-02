@@ -1,0 +1,18 @@
+# C++
+
+class Solution {
+public:
+    int differenceOfSum(vector<int>& nums) {
+        int val1 = 0;
+        int val2 = 0;
+        for(auto i:nums){
+            val1 += i;
+            while (i > 0){
+                int digit = i % 10;
+                val2 += digit;
+                i /= 10;
+            }
+        }
+        return abs(val1 - val2);
+    }
+};
