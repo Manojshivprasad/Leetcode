@@ -1,0 +1,18 @@
+# C++
+
+class Solution {
+public:
+    int countKeyChanges(string s) {
+        int c = 0;
+        char start = s[0];
+        for(int i = 1; i < s.size(); i++){
+            if (int(start) != int(s[i])){
+                if(abs(int(s[i]) - int(start)) != 32){
+                    c ++;
+                    start = s[i];
+                }
+            }
+        }
+        return c;
+    }
+};
