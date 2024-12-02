@@ -1,0 +1,17 @@
+# C++
+
+class Solution {
+public:
+    int countDigits(int num) {
+        int c = 0;
+        int val = num;
+        while(val > 0){
+            int digit = val % 10;
+            if (num % digit == 0){
+                c++;
+            }
+            val = val / 10;
+        }
+        return c;
+    }
+};
