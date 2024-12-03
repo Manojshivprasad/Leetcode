@@ -1,0 +1,19 @@
+# C++
+
+class Solution {
+public:
+    int findPairs(vector<int>& nums, int k) {
+        unordered_set<int> pair;
+        unordered_set<int> data;
+        for (int x:nums){
+            if (data.find(x-k) != data.end()){
+                pair.insert(x-k);
+            }
+            if (data.find(x+k) != data.end()){
+                pair.insert(x);
+            }
+            data.insert(x);
+        }
+        return pair.size();
+    }
+};
