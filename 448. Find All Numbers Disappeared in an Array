@@ -1,0 +1,15 @@
+# C++
+
+class Solution {
+public:
+    vector<int> findDisappearedNumbers(vector<int>& nums) {
+        vector<int> result;
+        unordered_set<int> data(nums.begin(), nums.end());
+        for (int i = 1; i <= nums.size();i++){
+            if (data.find(i) == data.end()){
+                result.push_back(i);
+            }
+        }
+        return result;
+    }
+};
