@@ -1,0 +1,30 @@
+# C++
+
+class Solution {
+public:
+    int sum(int x){
+        int result = 0;
+        while (x > 0){
+            result += x % 10;
+            x /= 10;
+        }
+        return result;
+    }
+    int countLargestGroup(int n) {
+        int max1 = 0;
+        int c = 0;
+        unordered_map<int,int> data;
+        unordered_set<int> result;
+        for(int i = 1; i <= n; i++){
+            int y = sum(i);
+            data[y]++;
+            max1 = max(max1,data[y]);
+        }
+        for(const auto& x : data){
+            if (x.second == max1){
+                c++;
+            }
+        }
+        return c;
+    }
+};
