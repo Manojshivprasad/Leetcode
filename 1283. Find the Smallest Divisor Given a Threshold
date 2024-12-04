@@ -1,0 +1,26 @@
+# C++
+
+class Solution {
+public:
+    bool check(vector<int> arr, int max, int k){
+        int sum = 0;
+        for (auto x : arr){
+            sum += (x + max - 1) / max;
+        }
+        return sum > k;
+    }
+    int smallestDivisor(vector<int>& nums, int threshold) {
+        int start = 1;
+        int end = *max_element(nums.begin(),nums.end());
+        while (start < end){
+            int mid = start + (end - start) / 2;
+            if (check(nums,mid,threshold)){
+                start = mid + 1;
+            }
+            else{
+                end = mid;
+            }
+        }
+        return start;
+    }
+};
