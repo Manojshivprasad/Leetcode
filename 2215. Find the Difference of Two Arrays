@@ -1,0 +1,23 @@
+# C++
+
+class Solution {
+public:
+    vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int> num1(nums1.begin(),nums1.end());
+        unordered_set<int> num2(nums2.begin(),nums2.end());
+        vector<vector<int>> result{ {},{} };
+        for(int x : nums1){
+            if (num2.find(x) == num2.end()){
+                result[0].push_back(x);
+                num2.insert(x);
+            }
+        }
+        for(int x : nums2){
+            if (num1.find(x) == num1.end()){
+                result[1].push_back(x);
+                num1.insert(x);
+            }
+        }
+        return result;
+    }
+};
