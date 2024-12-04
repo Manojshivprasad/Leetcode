@@ -1,0 +1,31 @@
+# C++
+
+class Solution {
+public:
+    string remove(string str){
+        int i = 0;
+        while (i < str.length() && str[i] == '0') {
+            i++;
+        }
+        if (i == str.size()) {
+            return "0";
+        }
+        return str.substr(i);
+    }
+    int numDifferentIntegers(string word) {
+        unordered_set<string> data;
+        for(int i = 0; i < word.size(); i++){
+            int val = word[i] - '0';
+            if (val > 9){
+                word[i] = ' ';
+            }
+        }
+        stringstream ss(word);
+        string x;
+        while (ss >> x) {
+            data.insert(remove(x));
+        }
+        cout << word;
+        return data.size();
+    }
+};
