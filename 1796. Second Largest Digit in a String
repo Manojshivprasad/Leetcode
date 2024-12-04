@@ -1,0 +1,21 @@
+C++
+
+class Solution {
+public:
+    int secondHighest(string s) {
+        set<int> data;
+        for (auto x : s){
+            int val = x - '0';
+            if (val <= 9){
+                data.insert(val);
+            }
+        }
+        if (data.size() < 2){
+            return -1;
+        }
+        else{
+            auto last = *(--(--data.end()));
+            return last;
+        }
+    }
+};
