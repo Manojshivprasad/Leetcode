@@ -1,0 +1,30 @@
+# C++
+
+class Solution {
+public:
+    bool isPathCrossing(string path) {
+        int x = 0;
+        int y = 0;
+        set<vector<int>> data;
+        data.insert({0,0});
+        for (auto i : path){
+            if (i == 'N'){
+                x++;
+            }
+            else if (i == 'S'){
+                x--;
+            }
+            else if (i == 'E'){
+                y++;
+            }
+            else{
+                y--;
+            }
+            if (data.find({x,y}) != data.end()){
+                return true;
+            }
+            data.insert({x,y});
+        }
+        return false;
+    }
+};  
