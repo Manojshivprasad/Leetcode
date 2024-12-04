@@ -1,0 +1,19 @@
+# C++
+
+class Solution {
+public:
+    int countPoints(string rings) {
+        int c = 0;
+        unordered_map<char,unordered_set<char>> data;
+        for(int i = 1; i < rings.size(); i += 2){
+            data[rings[i]].insert(rings[i-1]);
+        }
+        for(const auto& x : data){
+            auto y = x.second;
+            if (y.count('R') && y.count('G') && y.count('B')){
+                c++;
+            }
+        }
+        return c;
+    }
+};
