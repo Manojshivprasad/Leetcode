@@ -1,0 +1,43 @@
+# C++
+
+class Solution {
+public:
+    string originalDigits(string s) {
+        string result;
+        unordered_map<char,int> main;
+        unordered_map<int,string> value{{0, "zero"},{1, "one"},{2, "two"},{3, "three"},{4, "four"},{5, "five"},{6, "six"},{7, "seven"},{8, "eight"},{9, "nine"}};
+        string unique1[5] = {"u4","w2","z0","g8","x6"};
+        string unique2[4] = {"o1","t3","f5","s7"};
+
+        for(auto x : s){
+            main[x]++;
+        }
+
+        for (int i = 0; i < 5; i++){
+            while (main[unique1[i][0]] > 0){
+                result += unique1[i][1];
+                string num = value[unique1[i][1] - '0'];
+                for (auto x : num){
+                    main[x]--;
+                }
+            }
+        }
+        for (int i = 0; i < 4; i++){
+            while (main[unique2[i][0]] > 0){
+                result += unique2[i][1];
+                string num = value[unique2[i][1] - '0'];
+                for (auto x : num){
+                    main[x]--;
+                }
+            }
+        }
+        while(main['e'] > 0){
+            result += "9";
+            main['n'] -= 2;
+            main['i'] -= 1;
+            main['e'] -= 1;
+        }
+        sort(result.begin(),result.end());
+        return result;
+    }
+};
