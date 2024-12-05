@@ -1,0 +1,23 @@
+# C++
+
+class Solution {
+public:
+    bool count(long int x, int k, int a, int b){
+        long int val = (x/a) + (x/b) - (x/lcm(a,b));
+        return val < k;
+    }
+    int nthMagicalNumber(int n, int a, int b) {
+        long start = 1L,end = ((n*1L)*min((a*1L),(b*1L))),val = end;
+        while (start < end){
+            long int mid = start + (end - start) / 2;
+            if (count(mid,n,a,b)){
+                val = mid;
+                start = mid + 1;
+            }
+            else{
+                end = mid;
+            }
+        }
+        return start % 1000000007;
+    }
+};
