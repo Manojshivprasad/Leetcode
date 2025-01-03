@@ -1,0 +1,28 @@
+# C++
+
+class Solution {
+public:
+    int maxScore(string s) {
+        int maxval = INT_MIN;
+        int c1 = 0;
+        int c0 = 0;
+        for (int i = 0; i < s.size(); i++){
+            if (s[i] == '1'){
+                c1++;
+            }
+        }
+        for (int i = 0; i < s.size()-1; i++){
+            int val = 0;
+            if (s[i] == '0'){
+                c0++;
+                val = c0 + c1;
+            }
+            else{
+                c1--;
+                val = c0 + c1;
+            }
+            maxval = max(maxval,val);
+        }
+        return maxval;
+    }
+};
