@@ -1,0 +1,34 @@
+# C++
+
+class Solution {
+public:
+    vector<int> vowelStrings(vector<string>& words, vector<vector<int>>& queries) {
+        unordered_set<char> data = {'a','e','i','o','u'};
+        vector<int> table;
+        vector<int> sumtable;
+        vector<int> result;
+        int prevsum = 0;
+        for (int i = 0; i < words.size(); i++){
+            string word = words[i];
+            if ((data.find(word[0]) != data.end()) && (data.find(word[word.size()-1]) != data.end())) {
+                table.push_back(1);
+            }
+            else{
+                table.push_back(0);
+            }
+        }
+        for (int i = 0; i < table.size(); i++){
+            prevsum += table[i];
+            sumtable.push_back(prevsum);
+        }
+        for (int i = 0; i < queries.size(); i++){
+            if (queries[i][0] == 0){
+                result.push_back(sumtable[queries[i][1]]);
+            }
+            else{
+                result.push_back(sumtable[queries[i][1]]-sumtable[queries[i][0]-1]);
+            }
+        }
+        return result;
+    }
+};
